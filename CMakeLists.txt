@@ -13,7 +13,7 @@ add_executable(r3 r3.c
         r3.c)
 add_executable(fat fat.c
         fat.c)
-add_executable(1255bee 2728.c
+add_executable(2728 2728.c
         2728.c)
 add_executable(1272b 1272b.c)
 add_executable(2153b 2153b.c)

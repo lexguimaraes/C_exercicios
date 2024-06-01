@@ -206,37 +206,37 @@ build fat.exe: C_EXECUTABLE_LINKER__fat_Debug CMakeFiles/fat.dir/fat.c.obj
   TARGET_PDB = fat.exe.dbg
 
 # =============================================================================
-# Object build statements for EXECUTABLE target 1255bee
+# Object build statements for EXECUTABLE target 2728
 
 
 #############################################
-# Order-only phony target for 1255bee
+# Order-only phony target for 2728
 
-build cmake_object_order_depends_target_1255bee: phony || CMakeFiles/1255bee.dir
+build cmake_object_order_depends_target_2728: phony || CMakeFiles/2728.dir
 
-build CMakeFiles/1255bee.dir/2728.c.obj: C_COMPILER__1255bee_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/2728.c || cmake_object_order_depends_target_1255bee
-  DEP_FILE = CMakeFiles\1255bee.dir\2728.c.obj.d
+build CMakeFiles/2728.dir/2728.c.obj: C_COMPILER__2728_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/2728.c || cmake_object_order_depends_target_2728
+  DEP_FILE = CMakeFiles\2728.dir\2728.c.obj.d
   FLAGS = -g -std=gnu99 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\1255bee.dir
-  OBJECT_FILE_DIR = CMakeFiles\1255bee.dir
+  OBJECT_DIR = CMakeFiles\2728.dir
+  OBJECT_FILE_DIR = CMakeFiles\2728.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target 1255bee
+# Link build statements for EXECUTABLE target 2728
 
 
 #############################################
-# Link the executable 1255bee.exe
+# Link the executable 2728.exe
 
-build 1255bee.exe: C_EXECUTABLE_LINKER__1255bee_Debug CMakeFiles/1255bee.dir/2728.c.obj
+build 2728.exe: C_EXECUTABLE_LINKER__2728_Debug CMakeFiles/2728.dir/2728.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\1255bee.dir
+  OBJECT_DIR = CMakeFiles\2728.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = 1255bee.exe
-  TARGET_IMPLIB = lib1255bee.dll.a
-  TARGET_PDB = 1255bee.exe.dbg
+  TARGET_FILE = 2728.exe
+  TARGET_IMPLIB = lib2728.dll.a
+  TARGET_PDB = 2728.exe.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target 1272b
@@ -396,13 +396,13 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build 1255bee: phony 1255bee.exe
-
 build 1272b: phony 1272b.exe
 
 build 1686b: phony 1686b.exe
 
 build 2153b: phony 2153b.exe
+
+build 2728: phony 2728.exe
 
 build fat: phony fat.exe
 
@@ -424,7 +424,7 @@ build untitled: phony untitled.exe
 #############################################
 # Folder: C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug
 
-build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 1255bee.exe 1272b.exe 2153b.exe 1686b.exe teste.exe
+build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe
 
 # =============================================================================
 # Built-in targets
