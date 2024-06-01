@@ -58,22 +58,7 @@ int teste(int n, int matriz[n][n],int sum){//5 3 1
 
 
 
-struct Person{
-    char name[10];
-    int age;
-};
-
-
-void updateage(struct Person *p, int age){
-    p->age = age;
-}
 int main() {
-    struct Person vasco;
-    strcpy(vasco.name,"name");
-    struct Person *vascoo = &vasco;
-    strcpy(vascoo->name,"vasco");
-    vascoo->age = 15;
-    printf("%s %d",vascoo->name,vascoo->age);
 
 
     return 0;
