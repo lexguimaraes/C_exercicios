@@ -1,0 +1,12 @@
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/untitled.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/r1.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/r2.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/r3.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/fat.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1255bee.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/12255b.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1272b.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/2153b.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1686b.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/rebuild_cache.dir
