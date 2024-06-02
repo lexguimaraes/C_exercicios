@@ -8,21 +8,32 @@ struct Person{
 
 char** lerfile(int *tam){
     char **nomes = malloc(sizeof(char*));
+    if(nomes == NULL)
+        return 0;
     FILE *fnomes = fopen("word.txt","r");
     if (fnomes == NULL){
         perror("Error opening file");
+        free(nomes);
         return 0;
     }
     char temp[30];
     while (fscanf(fnomes,"%s",temp)==1){
 
         nomes = realloc(nomes,sizeof(char*)*(*tam+1));
+        if (nomes == NULL)
+            return 0;
         nomes[*tam] = strdup(temp);
         //printf("%s\n",nomes[tam]);
         (*tam)++;
     }
     fclose(fnomes);
     return nomes;
+}
+
+void freearr(char **arr, int tam){
+    for (int i = 0;i < tam; i++){
+        free(arr[i]);
+    }
 }
 
 void updateage(struct Person *p, const int *age,const int sizea,int size,char **nomes,const int tam){
@@ -58,9 +69,7 @@ int main() {
     char **nomes = lerfile(&tam);
     updateage(vasco,a ,5,10,nomes,tam);
     free(vasco);
-    for (int i = 0; i < tam; i++){
-        free(nomes[i]);
-    }
+    freearr(nomes,tam);
     free(nomes);
     return 0;
 }
