@@ -25,13 +25,24 @@ char** lerfile(int *tam){
     return nomes;
 }
 
-void updateage(struct Person *p, const int *age,const int sizea,int size,char **nomes){
+void updateage(struct Person *p, const int *age,const int sizea,int size,char **nomes,const int tam){
     char buffer[400];
     char temp[10];
+    unsigned int esp = 0;
+    for(int i = 0 ; i<tam; i++){
+        if (strlen(nomes[i]) > esp)
+            esp = strlen(nomes[i]) + 4;
+    }
+
+
+
     for (int j = 0; j<size ;j++){
         strcpy(p[j].name, nomes[j]);
-        printf("%s      ",p[j].name);
-        for (int i = 0;i < sizea ; i++){
+        printf("%s",p[j].name);
+        for(int k = 0; k < esp-strlen(p[j].name); k++){
+            printf(" ");
+        }
+        for (int i = 0; i < sizea ; i++){
             p[j].age[i] = age[i];
             printf("%d",p[j].age[i]);
         }
@@ -45,7 +56,7 @@ int main() {
     int a[5]= {1,2,3,4,5};
     int tam = 0;
     char **nomes = lerfile(&tam);
-    updateage(vasco,a ,5,10,nomes);
+    updateage(vasco,a ,5,10,nomes,tam);
     free(vasco);
     for (int i = 0; i < tam; i++){
         free(nomes[i]);
