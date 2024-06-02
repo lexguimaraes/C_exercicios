@@ -20,8 +20,9 @@ char** lerfile(int *tam){
     while (fscanf(fnomes,"%s",temp)==1){
 
         nomes = realloc(nomes,sizeof(char*)*(*tam+1));
-        if (nomes == NULL)
-            return 0;
+        if (nomes == NULL){
+            fclose(fnomes);
+            return 0;}
         nomes[*tam] = strdup(temp);
         //printf("%s\n",nomes[tam]);
         (*tam)++;
@@ -36,7 +37,7 @@ void freearr(char **arr, int tam){
     }
 }
 
-void updateage(struct Person *p, const int *age,const int sizea,int size,char **nomes,const int tam){
+void updateage(struct Person *p, const int *age,const int size_a,int size,char **nomes,const int tam){
     char buffer[400];
     char temp[10];
     unsigned int esp = 0;
@@ -53,7 +54,7 @@ void updateage(struct Person *p, const int *age,const int sizea,int size,char **
         for(int k = 0; k < esp-strlen(p[j].name); k++){
             printf(" ");
         }
-        for (int i = 0; i < sizea ; i++){
+        for (int i = 0; i < size_a ; i++){
             p[j].age[i] = age[i];
             printf("%d",p[j].age[i]);
         }

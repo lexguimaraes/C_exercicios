@@ -20,3 +20,4 @@ add_executable(2153b 2153b.c)
 add_executable(1686b 1686b.c
         1686b.c)
 add_executable(teste teste.c)
+add_executable(linkedlist linkedlist.c)

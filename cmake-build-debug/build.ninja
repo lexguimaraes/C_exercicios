@@ -370,6 +370,39 @@ build teste.exe: C_EXECUTABLE_LINKER__teste_Debug CMakeFiles/teste.dir/teste.c.o
   TARGET_IMPLIB = libteste.dll.a
   TARGET_PDB = teste.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target linkedlist
+
+
+#############################################
+# Order-only phony target for linkedlist
+
+build cmake_object_order_depends_target_linkedlist: phony || CMakeFiles/linkedlist.dir
+
+build CMakeFiles/linkedlist.dir/linkedlist.c.obj: C_COMPILER__linkedlist_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/linkedlist.c || cmake_object_order_depends_target_linkedlist
+  DEP_FILE = CMakeFiles\linkedlist.dir\linkedlist.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\linkedlist.dir
+  OBJECT_FILE_DIR = CMakeFiles\linkedlist.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target linkedlist
+
+
+#############################################
+# Link the executable linkedlist.exe
+
+build linkedlist.exe: C_EXECUTABLE_LINKER__linkedlist_Debug CMakeFiles/linkedlist.dir/linkedlist.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\linkedlist.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = linkedlist.exe
+  TARGET_IMPLIB = liblinkedlist.dll.a
+  TARGET_PDB = linkedlist.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -406,6 +439,8 @@ build 2728: phony 2728.exe
 
 build fat: phony fat.exe
 
+build linkedlist: phony linkedlist.exe
+
 build r1: phony r1.exe
 
 build r2: phony r2.exe
@@ -424,7 +459,7 @@ build untitled: phony untitled.exe
 #############################################
 # Folder: C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug
 
-build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe
+build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe
 
 # =============================================================================
 # Built-in targets

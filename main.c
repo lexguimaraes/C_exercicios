@@ -7,9 +7,9 @@ void tri();
 
 void acima_da_diagonal();
 
-void print_array(float arr[],int size);
+void print_array(int *arr,int size);
 
-void print_matrix(int lin, int col, float arr[lin][col]);
+void print_matrix(int lin, int col, int **arr);
 
 float sum(float arr[],int size, int start);
 
@@ -56,10 +56,27 @@ int teste(int n, int matriz[n][n],int sum){//5 3 1
     return 0;
 }
 
+int **criarMatriz(int l,int c){
+    int **m = malloc(sizeof(int*)*l);
+    if (m == NULL)
+        return 0;
+    for (int i = 0; i < l;i++){
+        m[i] = malloc(sizeof(int)*c);
+        if (m[i] == NULL){
+            for(int j = 0; j < i; j++)
+                free(m[j]);
+            free(m);
+            return 0;
+        }
+        for (int j = 0; j<c; j++){
+            scanf("%d",&m[i][j]);
+        }
+    }
+    return m;
+}
 
 
 int main() {
-
 
     return 0;
 }
@@ -179,16 +196,16 @@ void acima_da_diagonal(){
 
 
 
-void print_array(float arr[], int size){
+void print_array(int *arr, int size){
     for (int i = 0; i < size ; i++){
-        printf("%.1f ", arr[i]);
+        printf("%d ", arr[i]);
     }
     puts("");
 }
 
 
 
-void print_matrix(int lin,int col, float arr[lin][col]){
+void print_matrix(int lin,int col, int** arr){
     for (int i = 0 ; i < lin ; i++){
         print_array(arr[i],col );
     }

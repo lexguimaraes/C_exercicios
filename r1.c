@@ -21,7 +21,11 @@ int main(){
     }
     char word[100];
     char **wordsc = malloc(sizeof(char*));
+    if (wordsc == NULL)
+        return 0;
     int *rep =malloc(sizeof(int));
+    if (rep == NULL)
+        return 0;
     int tam = 0;
     while (fscanf(words, "%99s",word)==1){
         //printf("%s",word);
@@ -35,7 +39,11 @@ int main(){
         }
         if (flag == 0){
             wordsc = realloc(wordsc,sizeof(char*) * (tam+1));
+            if (wordsc == NULL)
+                return 0;
             rep = realloc(rep,sizeof(int) * (tam+1));
+            if (rep == NULL)
+                return 0;
             wordsc[tam] = strdup(word);
             rep[tam] = 1;
             tam++;
