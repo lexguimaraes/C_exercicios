@@ -403,6 +403,39 @@ build linkedlist.exe: C_EXECUTABLE_LINKER__linkedlist_Debug CMakeFiles/linkedlis
   TARGET_IMPLIB = liblinkedlist.dll.a
   TARGET_PDB = linkedlist.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target 1031b
+
+
+#############################################
+# Order-only phony target for 1031b
+
+build cmake_object_order_depends_target_1031b: phony || CMakeFiles/1031b.dir
+
+build CMakeFiles/1031b.dir/1031b.c.obj: C_COMPILER__1031b_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/1031b.c || cmake_object_order_depends_target_1031b
+  DEP_FILE = CMakeFiles\1031b.dir\1031b.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\1031b.dir
+  OBJECT_FILE_DIR = CMakeFiles\1031b.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 1031b
+
+
+#############################################
+# Link the executable 1031b.exe
+
+build 1031b.exe: C_EXECUTABLE_LINKER__1031b_Debug CMakeFiles/1031b.dir/1031b.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\1031b.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 1031b.exe
+  TARGET_IMPLIB = lib1031b.dll.a
+  TARGET_PDB = 1031b.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -428,6 +461,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
 # Target aliases.
+
+build 1031b: phony 1031b.exe
 
 build 1272b: phony 1272b.exe
 
@@ -459,7 +494,7 @@ build untitled: phony untitled.exe
 #############################################
 # Folder: C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug
 
-build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe
+build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe 1031b.exe
 
 # =============================================================================
 # Built-in targets
