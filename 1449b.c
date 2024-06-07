@@ -3,7 +3,7 @@
 #include <string.h>
 
 typedef struct Node{
-    char data[300];
+    char data[100];
     struct Node* next;
     struct Node* ant;
 }Node;
@@ -11,6 +11,7 @@ typedef struct Node{
 
 Node* insere(Node* l,char* palavra){
     Node* new = malloc(sizeof(Node));
+    if (new == NULL)return NULL;
     strcpy(new->data,palavra);
     new->next = l;
     new->ant = NULL;
@@ -55,47 +56,37 @@ int main(){
     for (int i = 0;i<k;i++) {
         Node* head = NULL;
         int n, m;
-        int t = 0;
         scanf("%d %d\n", &n, &m);
         char musica[m][81];
-        char palavras[81*m][81];
         char palavra[64];
         for (int j = 0; j < n * 2; j++) {
-            fgets(palavra,63,stdin);
-            palavra[strlen(palavra)-1]='\0';
+            fgets(palavra,62,stdin);
+            palavra[strcspn(palavra,"\n")]=0;
             head = insere(head, palavra);
+            if (head == NULL){
+                fprintf(stderr, "Memory allocation failed\n");
+                return 0;
+            }
         }
         for(int y = 0;y<m;y++){
-            fgets(palavra,63,stdin);
+            fgets(palavra,62,stdin);
             strcpy(musica[y],palavra);
-        }
-        for (int j = 0; j < m;j++){
             const char s[2] = " ";
             char *token;
             char trad[300];
-            /* get the first token */
-            token = strtok(musica[j], s);
+            token = strtok(musica[y], s);
 
-            /* walk through other tokens */
             while( token != NULL ) {
                 token[strcspn(token,"\n")]=0;
                 //printf("%s ",token);
                 strcpy(trad,lista_busca(head, token));
                 printf("%s ",trad);
-                t++;
-                token = strtok(NULL, s);
-
+                token = strtok(NULL,s);
             }
             printf("\n");
         }
-        /*for (int u = 0;u<t;u++){
-            palavras[u][strcspn(palavras[u], "\n")] = 0;
-
-            strcpy(trad,lista_busca(head, palavras[u]));
-            printf("%s ",trad);
-        }*/
         printf("\n");
         lista_exclui(head);
     }
-    return 1;
+    return 0;
 }
