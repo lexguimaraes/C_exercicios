@@ -4,13 +4,12 @@ int rec(int n,int m,int desl[1000],int tam,int atual){
     if ((atual == 1) & (tam == 0)){
         desl[0] = 1;
         //printf("%d %d\n",desl[tam],tam);
-        return rec(n, m, desl,tam+1,2);
+        return rec(n, m, desl,tam+1,1);
     }
     if((m == 1) & (n != 13))
         return rec(n,m+1,desl,0,1);
     int passos = 0;
     int found;
-    atual--;
     while(passos<m){
         found = 0;
         atual++;

@@ -24,7 +24,7 @@ int main() {
         }
         scanf("%s", palavra);
         cont = 0;
-        for (int j = d; j >= 1; j--) { // Start from longest substrings
+        for (int j = d; j >= 1; j--) {
             for (int ind = 0; ind <= n - j; ind += d) {
                 if (isPalindrome(palavra, ind, ind + j - 1)) {
                     cont1 += j;
