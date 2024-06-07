@@ -2,8 +2,91 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(){
+typedef struct Node{
+    int data;
+    struct Node *next;
+}Node;
 
+Node* insere(Node* l, int i){
+    Node* new = (Node*)malloc(sizeof(Node));
+    new->data = i;
+    new->next = l;
+    return new;
+}
+
+void lista_imprime(Node* l) {
+    Node* p;// ponteiro auxiliar para "andar" na lista
+    for (p = l; p != NULL; p = p->next) /* percorre a lista,
+apontando para cada
+elemento a cada iteração */
+
+        printf("info = %d\n", p->data); /* imprime a
+
+informação armazenada no nó */
+
+}
+
+void lista_exclui (Node* l){
+    Node* p = l; // ponteiro para o primeiro elemento
+    while (p != NULL) { // enquanto não é o último elemento
+        Node* t = p->next; /* guarda o ponteiro para o próximo elemento */
+        free(p); // libera espaço do elemento corrente
+        p = t; // lista passa apontar para o próximo elemento
+    }
+}
+Node* busca_lista(Node* l, int n){
+    for (Node* p = l; p!= NULL;p=p->next){
+        if (p->data == n){
+            return p;
+        }
+    }
+    return NULL;
+}
+
+int busca_ind(Node*l, int n){
+    Node *p = l;
+    for (int i = 0; i<n;i++){
+        if (p->next != NULL)
+            p = p->next;
+        else
+            return -1;
+    }
+    int num = p->data;
+    return num;
+}
+
+Node* lista_remove_elem(Node *l, int n){
+    Node* ind = NULL;
+    Node* p = l;
+    while ((p != NULL) && (p->data!=n)){
+        ind = p;
+        p = p->next;
+    }
+    if (p == NULL){
+        return l;
+    }
+    if (ind == NULL){
+        l = l->next;
+    }
+    else{
+        ind->next = p->next;
+    }
+    free(p);
+    return l;
+}
+
+int main(){
+    Node *head = NULL;
+    head = insere(head,15);
+    head = insere(head,20);
+    head = insere(head,30);
+    lista_imprime(head);
+    head = lista_remove_elem(head,15);
+    head = lista_remove_elem(head,20);
+    lista_imprime(head);
+    head = lista_remove_elem(head,30);
+    lista_imprime(head);
+    lista_exclui(head);
 
 
 
