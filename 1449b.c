@@ -38,6 +38,16 @@ char* lista_busca(Node* l, char* palavra){
     return palavra;
 }
 
+void lista_exclui (Node* l){
+    Node* p = l; // ponteiro para o primeiro elemento
+    while (p != NULL) { // enquanto não é o último elemento
+        Node* t = p->next; /* guarda o ponteiro para o próximo elemento */
+        free(p); // libera espaço do elemento corrente
+        p = t; // lista passa apontar para o próximo elemento
+    }
+}
+
+
 int main(){
 
     int k;
@@ -62,23 +72,30 @@ int main(){
         for (int j = 0; j < m;j++){
             const char s[2] = " ";
             char *token;
-
+            char trad[300];
             /* get the first token */
             token = strtok(musica[j], s);
 
             /* walk through other tokens */
             while( token != NULL ) {
-                strcpy(palavras[t],token);
+                token[strcspn(token,"\n")]=0;
+                //printf("%s ",token);
+                strcpy(trad,lista_busca(head, token));
+                printf("%s ",trad);
                 t++;
                 token = strtok(NULL, s);
+
             }
+            printf("\n");
         }
-        for (int u = 0;u<t;u++){
+        /*for (int u = 0;u<t;u++){
             palavras[u][strcspn(palavras[u], "\n")] = 0;
-            char trad[300];
+
             strcpy(trad,lista_busca(head, palavras[u]));
             printf("%s ",trad);
-        }
+        }*/
+        printf("\n");
+        lista_exclui(head);
     }
     return 1;
 }
