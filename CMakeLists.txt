@@ -22,3 +22,4 @@ add_executable(1686b 1686b.c
 add_executable(teste teste.c)
 add_executable(linkedlist linkedlist.c)
 add_executable(1031b 1031b.c)
+add_executable(1449b 1449b.c)

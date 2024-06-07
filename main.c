@@ -77,6 +77,11 @@ int **criarMatriz(int l,int c){
 
 
 int main() {
+    char palavra[100];
+    while(scanf("%[^\n]s*c", palavra)==1){
+        printf("%s",palavra);
+    }
+
 
     return 0;
 }
