@@ -73,7 +73,7 @@ int main(){
             strcpy(musica[y],palavra);
             const char s[2] = " ";
             char *token;
-            char trad[300];
+            char trad[100];
             token = strtok(musica[y], s);
 
             while( token != NULL ) {
