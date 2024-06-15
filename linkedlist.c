@@ -71,23 +71,49 @@ Node* lista_remove_elem(Node *l, int n){
     else{
         ind->next = p->next;
     }
-    free(p);
+    //free(p);
     return l;
 }
+Node* lista_metade(Node* l){
+    Node* start=l;
+    Node* startmet = l->next;
+    while(startmet != NULL){
+        startmet=startmet->next;
+        if (startmet!=NULL){
+            startmet=startmet->next;
+            start=start->next;
+        }
+    }
+    startmet = start->next;
+    start->next=NULL;
+    return startmet;
+}
 
+
+Node* lista_metaderec(Node*l,Node*ind){
+    if (ind == NULL) {
+        Node *u = l->next;
+        l->next = NULL;
+        return u;
+    }
+    Node* p = l;
+    Node* i = ind->next;
+    if (i!=NULL){
+        return lista_metaderec(p->next,i->next);
+    }
+    return lista_metaderec(p,i);
+}
 int main(){
     Node *head = NULL;
-    head = insere(head,15);
-    head = insere(head,20);
-    head = insere(head,30);
+    for (int i = 1;i<11;i++){
+        head = insere(head,i);
+    }
+    Node* startmet= lista_metaderec(head,head->next);
     lista_imprime(head);
-    head = lista_remove_elem(head,15);
-    head = lista_remove_elem(head,20);
-    lista_imprime(head);
-    head = lista_remove_elem(head,30);
-    lista_imprime(head);
+    printf("metade\n");
+    lista_imprime(startmet);
+    lista_exclui(startmet);
     lista_exclui(head);
-
 
 
     return 1;
