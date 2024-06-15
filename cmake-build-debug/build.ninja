@@ -469,6 +469,39 @@ build 1449b.exe: C_EXECUTABLE_LINKER__1449b_Debug CMakeFiles/1449b.dir/1449b.c.o
   TARGET_IMPLIB = lib1449b.dll.a
   TARGET_PDB = 1449b.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target 1244b
+
+
+#############################################
+# Order-only phony target for 1244b
+
+build cmake_object_order_depends_target_1244b: phony || CMakeFiles/1244b.dir
+
+build CMakeFiles/1244b.dir/1244b.c.obj: C_COMPILER__1244b_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/1244b.c || cmake_object_order_depends_target_1244b
+  DEP_FILE = CMakeFiles\1244b.dir\1244b.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\1244b.dir
+  OBJECT_FILE_DIR = CMakeFiles\1244b.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 1244b
+
+
+#############################################
+# Link the executable 1244b.exe
+
+build 1244b.exe: C_EXECUTABLE_LINKER__1244b_Debug CMakeFiles/1244b.dir/1244b.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\1244b.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 1244b.exe
+  TARGET_IMPLIB = lib1244b.dll.a
+  TARGET_PDB = 1244b.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -496,6 +529,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Target aliases.
 
 build 1031b: phony 1031b.exe
+
+build 1244b: phony 1244b.exe
 
 build 1272b: phony 1272b.exe
 
@@ -529,7 +564,7 @@ build untitled: phony untitled.exe
 #############################################
 # Folder: C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug
 
-build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe 1031b.exe 1449b.exe
+build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe 1031b.exe 1449b.exe 1244b.exe
 
 # =============================================================================
 # Built-in targets
