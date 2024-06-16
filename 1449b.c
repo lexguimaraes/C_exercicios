@@ -96,21 +96,19 @@ int main(){
                 printf("\n");
             else {
                 token = strtok(palavra, s);
-                strcpy(trad, lista_busca(head, token));
-                printf("%s", trad);
+                //strcpy(trad, lista_busca(head, token));
+                //printf("%s", trad);
                 //token[strcspn(token, "\n")] = 0;
-                do {
+                while(token!=NULL) {
                     //token[strcspn(token, "\n")] = 0;
                     //printf("%s ",token);
                     //printf("%s %d\n",token, lista_buscaind(head,token));
+
+
+                    strcpy(trad, lista_busca(head, token));
+                    printf("%s ", trad);
                     token = strtok(NULL, s);
-                    if(token)
-                        printf(" ");
-                    if (token){
-                        strcpy(trad, lista_busca(head, token));
-                        printf("%s", trad);
-                    }
-                }while(token!=NULL);
+                }
             }
             printf("\n");
             memset(palavra,0,sizeof(palavra));
