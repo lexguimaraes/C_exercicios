@@ -104,16 +104,8 @@ Node* lista_metaderec(Node*l,Node*ind){
     return lista_metaderec(p,i);
 }
 int main(){
-    Node *head = NULL;
-    for (int i = 1;i<11;i++){
-        head = insere(head,i);
-    }
-    Node* startmet= lista_metaderec(head,head->next);
-    lista_imprime(head);
-    printf("metade\n");
-    lista_imprime(startmet);
-    lista_exclui(startmet);
-    lista_exclui(head);
+    Node* head = NULL;
+    head = insere(head,15);
 
 
     return 1;

@@ -76,13 +76,17 @@ int **criarMatriz(int l,int c){
 }
 
 
-#include <stdio.h>
+void tes(int** data){
+    (*data)+=2;
 
-#include <string.h>
+}
 
-int main (void)
+int main ()
 {
-
+    int data[] = {1,2,3,4};
+    int *data2=data;
+    tes(&data2);
+    printf("%d",data2[0]);
     return 0;
 }
 
