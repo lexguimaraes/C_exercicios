@@ -62,17 +62,18 @@ void reverse(Node** head) {
     (*head)= ant;
 }
 
-void append(Node** head,char* data){
+Node* append(Node* head,char* data){
     Node* new = malloc(sizeof(Node));
     strcpy(new->simbolos,data);
     new->next = NULL;
-    if (*head == NULL){
-        *head = new;
-        return;
+    if (head == NULL){
+        head = new;
+        return head;
     }
     Node* p;
-    for(p = *head; p->next!=NULL;p = p->next);
+    for(p = head; p->next!=NULL;p = p->next);
     p->next = new;
+    return head;
 }
 
 void imprime(Node* l){
@@ -122,7 +123,7 @@ int main(){
             if (token!=NULL){
                 *token = '\0';
             }
-            append(&head,str);
+            head = append(head,str);
             //printf("%s",head->simbolos);
             if(token)
                 str = token+7;
