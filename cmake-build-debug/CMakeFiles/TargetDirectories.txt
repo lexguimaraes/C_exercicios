@@ -12,5 +12,7 @@ C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/linkedlist.
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1031b.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1449b.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1244b.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/2338b.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/2338blist.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/rebuild_cache.dir

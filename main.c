@@ -76,11 +76,30 @@ int **criarMatriz(int l,int c){
 }
 
 
-int main() {
-    char palavra[100];
-    while(scanf("%[^\n]s*c", palavra)==1){
-        printf("%s",palavra);
-    }
+#include <stdio.h>
+
+#include <string.h>
+
+int main (void)
+{
+    char str[] = "This is abc test abc string";
+
+    char* in = str;
+    char *delim = "abc";
+    char *token;
+
+    do {
+
+        token = strstr(in,delim);
+
+        if (token)
+            *token = '\0';
+
+        printf("%s\n",in);
+
+        in = token+strlen(delim);
+
+    }while(token!=NULL);
 
 
     return 0;
