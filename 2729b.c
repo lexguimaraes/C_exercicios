@@ -16,13 +16,9 @@ Node* insere(Node* l, char* data){
 
 void sort(Node* head){
     if (head == NULL)return;
-    char pivo[50];
     Node* temp;
-    int flag;
     for(Node* p = head;p!= NULL;p = p->next){
-        memset(pivo,0,sizeof(pivo));
         temp = p;
-        flag = 0;
         for (Node* i = p->next;i!=NULL;i = i->next){
             //printf("PALAVRA PIVO: %s PALAVRA i: %s\n",pivo,i->palavra);
             if(strcmp(i->palavra,temp->palavra)<0){ // NOLINT(*-suspicious-string-compare)
