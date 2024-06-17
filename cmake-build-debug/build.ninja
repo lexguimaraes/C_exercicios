@@ -601,6 +601,72 @@ build 2506b.exe: C_EXECUTABLE_LINKER__2506b_Debug CMakeFiles/2506b.dir/2506b.c.o
   TARGET_IMPLIB = lib2506b.dll.a
   TARGET_PDB = 2506b.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target 2492B
+
+
+#############################################
+# Order-only phony target for 2492B
+
+build cmake_object_order_depends_target_2492B: phony || CMakeFiles/2492B.dir
+
+build CMakeFiles/2492B.dir/2492b.c.obj: C_COMPILER__2492B_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/2492b.c || cmake_object_order_depends_target_2492B
+  DEP_FILE = CMakeFiles\2492B.dir\2492b.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\2492B.dir
+  OBJECT_FILE_DIR = CMakeFiles\2492B.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 2492B
+
+
+#############################################
+# Link the executable 2492B.exe
+
+build 2492B.exe: C_EXECUTABLE_LINKER__2492B_Debug CMakeFiles/2492B.dir/2492b.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\2492B.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 2492B.exe
+  TARGET_IMPLIB = lib2492B.dll.a
+  TARGET_PDB = 2492B.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target 2729b
+
+
+#############################################
+# Order-only phony target for 2729b
+
+build cmake_object_order_depends_target_2729b: phony || CMakeFiles/2729b.dir
+
+build CMakeFiles/2729b.dir/2729b.c.obj: C_COMPILER__2729b_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/2729b.c || cmake_object_order_depends_target_2729b
+  DEP_FILE = CMakeFiles\2729b.dir\2729b.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\2729b.dir
+  OBJECT_FILE_DIR = CMakeFiles\2729b.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 2729b
+
+
+#############################################
+# Link the executable 2729b.exe
+
+build 2729b.exe: C_EXECUTABLE_LINKER__2729b_Debug CMakeFiles/2729b.dir/2729b.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\2729b.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 2729b.exe
+  TARGET_IMPLIB = lib2729b.dll.a
+  TARGET_PDB = 2729b.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -643,9 +709,13 @@ build 2338b: phony 2338b.exe
 
 build 2338blist: phony 2338blist.exe
 
+build 2492B: phony 2492B.exe
+
 build 2506b: phony 2506b.exe
 
 build 2728: phony 2728.exe
+
+build 2729b: phony 2729b.exe
 
 build fat: phony fat.exe
 
@@ -669,7 +739,7 @@ build untitled: phony untitled.exe
 #############################################
 # Folder: C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug
 
-build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe 1031b.exe 1449b.exe 1244b.exe 2338b.exe 2338blist.exe 2506b.exe
+build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe 1031b.exe 1449b.exe 1244b.exe 2338b.exe 2338blist.exe 2506b.exe 2492B.exe 2729b.exe
 
 # =============================================================================
 # Built-in targets
