@@ -29,3 +29,6 @@ add_executable(2338blist 2338blist.c)
 add_executable(2506b 2506b.c)
 add_executable(2492B 2492b.c)
 add_executable(2729b 2729b.c)
+add_executable(1030b 1030b.c)
+add_executable(Exercicio_adicional Exercicio_adicional.c
+        palavra.c)

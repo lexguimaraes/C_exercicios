@@ -667,6 +667,78 @@ build 2729b.exe: C_EXECUTABLE_LINKER__2729b_Debug CMakeFiles/2729b.dir/2729b.c.o
   TARGET_IMPLIB = lib2729b.dll.a
   TARGET_PDB = 2729b.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target 1030b
+
+
+#############################################
+# Order-only phony target for 1030b
+
+build cmake_object_order_depends_target_1030b: phony || CMakeFiles/1030b.dir
+
+build CMakeFiles/1030b.dir/1030b.c.obj: C_COMPILER__1030b_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/1030b.c || cmake_object_order_depends_target_1030b
+  DEP_FILE = CMakeFiles\1030b.dir\1030b.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\1030b.dir
+  OBJECT_FILE_DIR = CMakeFiles\1030b.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 1030b
+
+
+#############################################
+# Link the executable 1030b.exe
+
+build 1030b.exe: C_EXECUTABLE_LINKER__1030b_Debug CMakeFiles/1030b.dir/1030b.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\1030b.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 1030b.exe
+  TARGET_IMPLIB = lib1030b.dll.a
+  TARGET_PDB = 1030b.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Exercicio_adicional
+
+
+#############################################
+# Order-only phony target for Exercicio_adicional
+
+build cmake_object_order_depends_target_Exercicio_adicional: phony || CMakeFiles/Exercicio_adicional.dir
+
+build CMakeFiles/Exercicio_adicional.dir/Exercicio_adicional.c.obj: C_COMPILER__Exercicio_adicional_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/Exercicio_adicional.c || cmake_object_order_depends_target_Exercicio_adicional
+  DEP_FILE = CMakeFiles\Exercicio_adicional.dir\Exercicio_adicional.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Exercicio_adicional.dir
+  OBJECT_FILE_DIR = CMakeFiles\Exercicio_adicional.dir
+
+build CMakeFiles/Exercicio_adicional.dir/palavra.c.obj: C_COMPILER__Exercicio_adicional_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/palavra.c || cmake_object_order_depends_target_Exercicio_adicional
+  DEP_FILE = CMakeFiles\Exercicio_adicional.dir\palavra.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Exercicio_adicional.dir
+  OBJECT_FILE_DIR = CMakeFiles\Exercicio_adicional.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Exercicio_adicional
+
+
+#############################################
+# Link the executable Exercicio_adicional.exe
+
+build Exercicio_adicional.exe: C_EXECUTABLE_LINKER__Exercicio_adicional_Debug CMakeFiles/Exercicio_adicional.dir/Exercicio_adicional.c.obj CMakeFiles/Exercicio_adicional.dir/palavra.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Exercicio_adicional.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Exercicio_adicional.exe
+  TARGET_IMPLIB = libExercicio_adicional.dll.a
+  TARGET_PDB = Exercicio_adicional.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -693,6 +765,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build 1030b: phony 1030b.exe
+
 build 1031b: phony 1031b.exe
 
 build 1244b: phony 1244b.exe
@@ -717,6 +791,8 @@ build 2728: phony 2728.exe
 
 build 2729b: phony 2729b.exe
 
+build Exercicio_adicional: phony Exercicio_adicional.exe
+
 build fat: phony fat.exe
 
 build linkedlist: phony linkedlist.exe
@@ -739,7 +815,7 @@ build untitled: phony untitled.exe
 #############################################
 # Folder: C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug
 
-build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe 1031b.exe 1449b.exe 1244b.exe 2338b.exe 2338blist.exe 2506b.exe 2492B.exe 2729b.exe
+build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe 1031b.exe 1449b.exe 1244b.exe 2338b.exe 2338blist.exe 2506b.exe 2492B.exe 2729b.exe 1030b.exe Exercicio_adicional.exe
 
 # =============================================================================
 # Built-in targets

@@ -81,13 +81,16 @@ void tes(int** data){
 
 }
 
+double raiz2(int n){
+    if (n == 0)return 0;
+    return 1/(2+raiz2(n-1));
+}
+
+
+
 int main ()
 {
-    int data[] = {1,2,3,4};
-    int *data2=data;
-    tes(&data2);
-    printf("%d",data2[0]);
-    return 0;
+
 }
 
 
