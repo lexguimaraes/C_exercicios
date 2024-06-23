@@ -77,7 +77,8 @@ void imprimirlistaDist(Node* head,char* palavra1, double(*dist)(palavra*,palavra
 }
 
 
-
+// -- criar uma lista de palavras a partir do arquivo em anexo,
+// oriundo de http://nilc.icmc.usp.br/nilc/index.php/repositorio-de-word-embeddings-do-nilc, que contém  palavras e seus vetores.
 Node* lerarquivo(Node* head){
     FILE* arquivo = fopen("cbow_s50.txt","r");
 
@@ -96,7 +97,9 @@ Node* lerarquivo(Node* head){
     return head;
 }
 
-void sort(Node* head,int (*comparacao)(palavra*,palavra*,int)){
+//-- retornar as palavras da lista ordenadas alfabeticamente
+// -- retornar as palavras da lista ordenadas pela norma do vetor
+void sort(Node* head,int (*comparacao)(palavra*,palavra*,int)){//ORDENAR PELA FUNCAOO
     palavra* temp;
     for(Node* p = head; p!= NULL; p = p->next){
         for(Node* i = p->next; i!= NULL; i = i->next){
@@ -109,6 +112,7 @@ void sort(Node* head,int (*comparacao)(palavra*,palavra*,int)){
     }
 }
 
+// -- retornar um vetor de números aleatórios, caso uma palavra não esteja na lista.
 int* busca_palavra(Node*head, char*palavra){
     int* vetor = malloc(sizeof(int)*50);
     int cont = 0;
@@ -122,13 +126,13 @@ int* busca_palavra(Node*head, char*palavra){
         cont++;
     }
     for(int i = 0;i < 50; i++){
-        vetor[i] = rand();//nao achou
+        vetor[i] = rand()+50;//nao achou,+50 para nao confundir com os indices
     }
     return vetor; //PRECISA DAR FREE FORA!!!!!!!!!!!!!!
 }
 
 
-
+//-- retornar as palavras que estejam a uma distância "d" de uma palavra "x", de acordo com as duas distâncias definidas
 char** palavras_distancia(Node*head, double (*comparacao)(palavra*,palavra*,int), double distancia, char* palavra){//ORDENA DE ACORDO COM A FUNÇÃO DE PARAMETRO
     int cont = 0;                                                                   //dist_euclid para distancia euclidiana e cosin par distancia cosseno
     char** palavras;
@@ -147,7 +151,7 @@ char** palavras_distancia(Node*head, double (*comparacao)(palavra*,palavra*,int)
     palavras = malloc(sizeof(char*)*(cont+1));//+1 para saber o finall
     cont = 0;
     for(Node* p = head;p!= NULL; p = p->next){
-        if (fabs(comparacao(temp->palavra, p->palavra,50))<distancia && palavra_compara(temp->palavra,p->palavra,50)!=0){
+        if (  (fabs(comparacao(temp->palavra, p->palavra,50))<distancia) && (palavra_compara(temp->palavra,p->palavra,50)!=0)  ){
             palavras[cont] = malloc(sizeof(char)*51);
             strcpy(palavras[cont],p->palavra->palavra);
             cont++;
@@ -158,6 +162,7 @@ char** palavras_distancia(Node*head, double (*comparacao)(palavra*,palavra*,int)
     return palavras;//É PRECISO DAR FREE FORAAAAA!!!!!!!!!!!!!!!
 }
 
+// -- retornar as palavras que estejam na mesma categoria.
 char** palavras_categorias(Node*head, const char* categoria){
     int cont = 0;
     for(Node* p = head;p!= NULL; p = p->next){
@@ -219,6 +224,7 @@ char** agrupar_palavras(Node* head, int k, char* palavra1,double (*comparacao)(p
             }
             agrupamento[achados] = malloc(sizeof(char)*51);
             strcpy(agrupamento[achados],temp2->palavra->palavra);
+            //printf("%s     dist:  %lf\n",agrupamento[achados],comparacao(temp->palavra,temp2->palavra,50));
             achados++;
         }
         agrupamento[achados] = malloc(sizeof(char)*8);
@@ -227,7 +233,7 @@ char** agrupar_palavras(Node* head, int k, char* palavra1,double (*comparacao)(p
     }
     return NULL;
 }
-
+//-- retornar a categoria prevalecente dos "k" vizinhos mais próximos de uma palavra "x"
 char* categoria_vizinhos(Node* head, int k , char* palavra1, double (*comparacao)(palavra*,palavra*,int),char categorias1[20][16]){
     Node* temp;
     int encon = 0;
@@ -261,7 +267,7 @@ char* categoria_vizinhos(Node* head, int k , char* palavra1, double (*comparacao
             strcpy(agrupamento[achados],temp2->palavra->palavra);
             for(int i = 0;i<20;i++){
                 if(strcmp(temp2->palavra->categoria,categorias1[i])==0){
-                    printf("CATEGORIA: %s\n",categorias1[i]);
+                    //printf("CATEGORIA: %s\n",categorias1[i]);
                     contcat[i]++;
                     break;
                 }
@@ -286,14 +292,14 @@ char* categoria_vizinhos(Node* head, int k , char* palavra1, double (*comparacao
     }
     return NULL;
 }
-
+// -- retornar "m"  agrupamentos de "k" vizinhos mais próximos, onde cada agrupamento começa com um elemento aleatório.
 char*** m_agrupamentos(Node* head,int k,double (*comparacao)(palavra*,palavra*,int),int m){
     char*** m_agrup = malloc(sizeof(char**)*m);
     Node* p = head;
     if (p==NULL)return NULL;
     for(int i = 0;i<m;i++){
         p = head;
-        for(int j = 0;j<rand()%15;j++){
+        for(int j = 0;j<rand()%2000;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
             p = p->next;
             if(p == NULL)return NULL;
         }              //rand()%x x deve ser a quantidade de palavras,
@@ -301,7 +307,7 @@ char*** m_agrupamentos(Node* head,int k,double (*comparacao)(palavra*,palavra*,i
         imprimirlistaDist(head,p->palavra->palavra,comparacao);
         m_agrup[i] = agrupar_palavras(head, k,p->palavra->palavra,comparacao);
         if (m_agrup[i]==NULL) {
-            printf("DASDSA");
+            printf("ERROR 404");
             return NULL;
         }
     }
@@ -314,8 +320,8 @@ void limpar_lista_char(char** lista) {
         free(lista[i]);
         i++;
     }
-    free(lista[i]); // Libera a memória do sentinela "1f2i3m4"
-    free(lista); // Libera a memória do array em si
+    free(lista[i]);
+    free(lista);
 }
 
 
@@ -325,28 +331,31 @@ int main(){
     srand(time(NULL));
     Node* head = NULL;
     head = lerarquivo(head);
-    sort(head,norma_compara);
-    imprimirlistaNorma(head);
-    //imprimirlistaDist(head,"de", dist_euclid);
-    //char* teste = categoria_vizinhos(head, 5,"de", dist_euclid,categorias);
-    //char** teste1 = agrupar_palavras(head,5,"de",dist_euclid);
-    char*** teste2 = m_agrupamentos(head,5,dist_euclid,2);
-    int cont = 0;
-    printf("/////////////////\n////////////////////////////\n");
+    sort(head,palavra_compara);
+    //imprimirlistaNorma(head);
+    imprimirlista(head,50);
+    //imprimirlistaDist(head,"de", cosin);
+    //char** teste3 = palavras_distancia(head,dist_euclid,1.8,"uma");
+    //char* teste = categoria_vizinhos(head, 5,"de", cosin,categorias);
+    //char** teste1 = agrupar_palavras(head,5,"de",cosin);
+    //char*** teste2 = m_agrupamentos(head,5,dist_euclid,2);
+    //int cont = 0;
+    //printf("/////////////////\n////////////////////////////\n");
     //printf("%s\n",teste);
-
+    //char** testecat = palavras_categorias(head, "Brinquedos");
     /*while(strcmp(teste1[cont],"1f2i3m4")!=0){
         printf("%s\n",teste1[cont]);
         cont++;
-    }*/
-    for(int i = 0;i<2;i++){
+    }
+    for(int i = 0;i<2;i++) {
         cont = 0;
-        printf("Agrupamento : %d\n",i);
-        while(strcmp(teste2[i][cont],"1f2i3m4")!=0){
-            printf("%s\n",teste2[i][cont]);
+        printf("Agrupamento : %d\n", i);
+        while (strcmp(teste2[i][cont], "1f2i3m4") != 0) {
+            printf("%s\n", teste2[i][cont]);
             cont++;
         }
         printf("\n");
-    }
+    }*/
     exclui_lista(head);
+    return 0;
 }
