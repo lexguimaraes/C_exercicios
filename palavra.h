@@ -8,7 +8,7 @@ typedef struct Palavra{
 
 
 
-palavra* palavra_cria(const char* categoria, const double* vetor,const char*palavra1);
+palavra* palavra_cria(const char* categoria, const double* vetor,const char*palavra1,int size);
 
 void palavra_libera(palavra* palavra1);
 
@@ -22,4 +22,4 @@ double multvetor(palavra* palavra1,palavra* palavra2,int size);
 
 int norma_compara(palavra* palavra1,palavra* palavra2,int size);
 
-int palavra_compara(palavra* palavra1,palavra* palavra2);
+int palavra_compara(palavra* palavra1,palavra* palavra2,int size);

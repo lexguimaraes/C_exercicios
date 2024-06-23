@@ -86,11 +86,25 @@ double raiz2(int n){
     return 1/(2+raiz2(n-1));
 }
 
+int div2(int x){
+    return x/2;
+}
+int mult2(int x){
+    return x*2;
+}
 
+int teste1(int x, int (*function)(int)){
+   return function(x);
+}
 
+struct aaa{
+    char a[100];
+};
 int main ()
 {
-
+    struct aaa *vas;
+    vas = malloc(sizeof(*vas)*3);
+    printf("%llu",sizeof(vas));
 }
 
 

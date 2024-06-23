@@ -5,11 +5,11 @@
 #include "palavra.h"
 
 
-palavra* palavra_cria(const char* categoria, const double* vetor,const char*palavra1){
+palavra* palavra_cria(const char* categoria, const double* vetor,const char*palavra1,int size){
     palavra* new = malloc(sizeof(palavra));
     strcpy(new->categoria, categoria);
     strcpy(new->palavra,palavra1);
-    for(int i = 0; i < 3;i++){
+    for(int i = 0; i < size;i++){
         new->vetor[i] = vetor[i];
     }
     return new;
@@ -20,7 +20,7 @@ void palavra_libera(palavra* palavra1){
 }
 
 double cosin(palavra* palavra1,palavra* palavra2,int size){
-    return multvetor(palavra1,palavra2,size)/(normavetor(palavra1,size)*normavetor(palavra2,size));
+    return 1-(multvetor(palavra1,palavra2,size)/(normavetor(palavra1,size)*normavetor(palavra2,size)));
 }
 
 double dist_euclid(palavra* palavra1,palavra* palavra2,int size){
@@ -63,6 +63,6 @@ int norma_compara(palavra* palavra1,palavra* palavra2,int size){
     return 0;
 }
 
-int palavra_compara(palavra* palavra1,palavra* palavra2){
+int palavra_compara(palavra* palavra1,palavra* palavra2,int size){
     return strcmp(palavra1->palavra,palavra2->palavra);
 }
