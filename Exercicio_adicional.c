@@ -48,6 +48,7 @@ void exclui_lista(Node*head){
 
 
 int palavra_na_lista(char** lista,char* palavra,int size){
+    if (lista == NULL)return 0;
     for(int i = 0;i<size;i++){
         if (strcmp(lista[i],palavra)==0){
             return 1;
@@ -299,10 +300,10 @@ char*** m_agrupamentos(Node* head,int k,double (*comparacao)(palavra*,palavra*,i
     if (p==NULL)return NULL;
     for(int i = 0;i<m;i++){
         p = head;
-        for(int j = 0;j<rand()%929606;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
+        for(int j = 0;j<rand()%2000;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
             p = p->next;
             if(p == NULL)return NULL;
-        }              //rand()%x x deve ser a quantidade de palavras,
+        }
         printf("Lista: %d  Palavra: %s\n",i,p->palavra->palavra);
         //imprimirlistaDist(head,p->palavra->palavra,comparacao);
         m_agrup[i] = agrupar_palavras(head, k,p->palavra->palavra,comparacao);
@@ -339,8 +340,8 @@ int main(){
     //char* teste = categoria_vizinhos(head, 5,"de", cosin,categorias);
     //char** teste1 = agrupar_palavras(head,5,"um",dist_euclid);
     //char** teste11= agrupar_palavras(head,5,"um",cosin);
-    //char*** teste2 = m_agrupamentos(head,5,cosin,2);
-    //int cont = 0;
+    char*** teste2 = m_agrupamentos(head,5,cosin,3);
+    int cont = 0;
     //printf("/////////////////\n////////////////////////////\n");
     //printf("%s\n",teste);
     //char** testecat = palavras_categorias(head, "Brinquedos");
@@ -348,7 +349,7 @@ int main(){
         printf("%s  \n",testecat[cont]);
         cont++;
     }*/
-    /*for(int i = 0;i<2;i++) {
+    for(int i = 0;i<3;i++) {
         cont = 0;
         printf("Agrupamento : %d\n", i);
         while (strcmp(teste2[i][cont], "1f2i3m4") != 0) {
@@ -356,7 +357,11 @@ int main(){
             cont++;
         }
         printf("\n");
-    }*/
+    }
+    for(int i = 0;i<3;i++){
+        limpar_lista_char(teste2[i]);
+    }
+    free(teste2);
     exclui_lista(head);
     return 0;
 }
