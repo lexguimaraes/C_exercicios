@@ -103,9 +103,27 @@ Node* lista_metaderec(Node*l,Node*ind){
     }
     return lista_metaderec(p,i);
 }
+
+void reverse(Node **head){
+    Node *current = *head, *ant = NULL, *next = NULL;
+    while(current!=NULL){
+        next = current->next;
+        current->next = ant;
+        ant = current;
+        current = next;
+    }
+    *head = ant;
+}
+
 int main(){
     Node* head = NULL;
-    head = insere(head,15);
+    for(int i = 0;i<5;i++){
+        head = insere(head, i+1);
+    }
+    lista_imprime(head);
+    reverse(&head);
+    printf("REVERSA \n");
+    lista_imprime(head);
 
 
     return 1;

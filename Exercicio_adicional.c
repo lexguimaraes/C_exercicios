@@ -317,7 +317,7 @@ char*** m_agrupamentos(Node* head,int k,double (*comparacao)(palavra*,palavra*,i
     }
     for(int i = 0;i<m;i++){
         p = head;
-        for(int j = 0;j<rand()%2000;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
+        for(int j = 0;j<rand()%50000;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
             p = p->next;
             if(p == NULL)break;
         }
@@ -373,7 +373,7 @@ int main(int argc, char** argv){
         cont++;
     }*/
 
-    /*int m = 5;
+    /*int m = 10;
     char*** teste2 = m_agrupamentos(head,3,cosin,m);
     if (teste2!=NULL){
         for(int i = 0;i<m;i++){
