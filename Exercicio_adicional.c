@@ -104,32 +104,37 @@ Node* lerarquivo(Node* head){
 // -- retornar as palavras da lista ordenadas pela norma do vetor
 void sort(Node* head,int (*comparacao)(palavra*,palavra*,int)){//ORDENAR PELA FUNCAOO
     palavra* temp;
+    int swapped;
     for(Node* p = head; p!= NULL; p = p->next){
+        swapped = 0;
         for(Node* i = p->next; i!= NULL; i = i->next){
             if (comparacao(p->palavra,i->palavra,50)>0){
                 temp = p->palavra;
                 p->palavra = i->palavra;
                 i->palavra=temp;
+                swapped = 1;
             }
         }
+        if (!swapped)
+            break;
     }
 }
 
 // -- retornar um vetor de números aleatórios, caso uma palavra não esteja na lista.
-int* busca_palavra(Node*head, char*palavra){
-    int* vetor = malloc(sizeof(int)*50);
+double* busca_palavra(Node*head, char*palavra){
+    double* vetor = malloc(sizeof(int)*50);
     int cont = 0;
     for(Node* p = head; p!= NULL;p = p->next){
         if (strcmp(p->palavra->palavra,palavra)==0){
             for(int i = 0;i < 50; i++){
-                vetor[i] = cont;//achou,todos elementos do vetor sao o indice da palavra
+                vetor[i] = p->palavra->vetor[i];//achou
             }
             return vetor;
         }
         cont++;
     }
     for(int i = 0;i < 50; i++){
-        vetor[i] = rand()+50;//nao achou,+50 para nao confundir com os indices
+        vetor[i] = -1;
     }
     return vetor; //PRECISA DAR FREE FORA!!!!!!!!!!!!!!
 }
@@ -317,7 +322,7 @@ char*** m_agrupamentos(Node* head,int k,double (*comparacao)(palavra*,palavra*,i
     }
     for(int i = 0;i<m;i++){
         p = head;
-        for(int j = 0;j<rand()%50000;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
+        for(int j = 0;j<rand()%1000;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
             p = p->next;
             if(p == NULL)break;
         }
@@ -327,10 +332,10 @@ char*** m_agrupamentos(Node* head,int k,double (*comparacao)(palavra*,palavra*,i
                 printf("ERROR 404");
                 continue;
             }
-            /*printf("Lista: %d  \nPalavra: %s\n",i+1,p->palavra->palavra);
+            printf("Lista: %d  \nPalavra: %s\n",i+1,p->palavra->palavra);
             //imprimirlistaDist(head,p->palavra->palavra,comparacao);
             imprimir_Agrupamento(m_agrup[i]);
-            printf("\n");*/
+            printf("\n");
         }
     }
     return m_agrup;//FREE FORAAAAAAAAAAAAAAA!!!!!!!!!!!
@@ -373,8 +378,8 @@ int main(int argc, char** argv){
         cont++;
     }*/
 
-    /*int m = 10;
-    char*** teste2 = m_agrupamentos(head,3,cosin,m);
+    int m = 10;
+    /*char*** teste2 = m_agrupamentos(head,3,cosin,m);
     if (teste2!=NULL){
         for(int i = 0;i<m;i++){
             if (teste2[i]== NULL)continue;

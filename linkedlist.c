@@ -103,16 +103,30 @@ Node* lista_metaderec(Node*l,Node*ind){
     }
     return lista_metaderec(p,i);
 }
-
-void reverse(Node **head){
-    Node *current = *head, *ant = NULL, *next = NULL;
-    while(current!=NULL){
-        next = current->next;
-        current->next = ant;
-        ant = current;
-        current = next;
+//REVERTER SÓ ELEMENTOS
+void reverse_elements(Node *head){
+    if (!head)return;
+    int tamanho = 0;
+    int ind = 0;
+    Node* ultimo = head;
+    for(Node* p = head;p!=NULL;p= p->next) {
+        tamanho++;
+        if (ultimo->next!=NULL)
+            ultimo = ultimo->next;
     }
-    *head = ant;
+    Node* primeiro = head;
+    int temp;
+    while(ind<tamanho/2){
+        temp = ultimo->data;
+        ultimo->data = primeiro->data;
+        primeiro->data = temp;
+        primeiro = primeiro->next;
+        ind++;
+        ultimo = head;
+        for(int i = 0;i<tamanho-ind-1;i++){
+            ultimo = ultimo->next;
+        }
+    }
 }
 
 int main(){
@@ -121,10 +135,9 @@ int main(){
         head = insere(head, i+1);
     }
     lista_imprime(head);
-    reverse(&head);
     printf("REVERSA \n");
     lista_imprime(head);
-
+    lista_exclui(head);
 
     return 1;
 }
