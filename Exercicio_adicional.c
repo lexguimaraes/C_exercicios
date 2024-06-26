@@ -332,10 +332,10 @@ char*** m_agrupamentos(Node* head,int k,double (*comparacao)(palavra*,palavra*,i
                 printf("ERROR 404");
                 continue;
             }
-            printf("Lista: %d  \nPalavra: %s\n",i+1,p->palavra->palavra);
+            /*printf("Agrupamento: %d  \nPalavra: %s\n",i+1,p->palavra->palavra);
             //imprimirlistaDist(head,p->palavra->palavra,comparacao);
             imprimir_Agrupamento(m_agrup[i]);
-            printf("\n");
+            printf("\n");*/
         }
     }
     return m_agrup;//FREE FORAAAAAAAAAAAAAAA!!!!!!!!!!!
@@ -378,8 +378,8 @@ int main(int argc, char** argv){
         cont++;
     }*/
 
-    int m = 10;
-    /*char*** teste2 = m_agrupamentos(head,3,cosin,m);
+    /*int m = 10;
+    char*** teste2 = m_agrupamentos(head,3,cosin,m);
     if (teste2!=NULL){
         for(int i = 0;i<m;i++){
             if (teste2[i]== NULL)continue;
