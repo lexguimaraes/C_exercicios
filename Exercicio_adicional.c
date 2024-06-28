@@ -88,7 +88,7 @@ Node* lerarquivo(Node* head){
     int linhas, dimensao;
     fscanf(arquivo, "%d %d",&linhas, &dimensao);
     double tempvetor[dimensao];
-    char temp[51];
+    char temp[101];
     for(int i = 0;i<linhas;i++){
         fscanf(arquivo,"%s",temp);
         for(int j = 0; j < dimensao;j++){
@@ -117,12 +117,13 @@ void sort(Node* head,int (*comparacao)(palavra*,palavra*,int)){//ORDENAR PELA FU
         }
         if (!swapped)
             break;
+
     }
 }
 
 // -- retornar um vetor de números aleatórios, caso uma palavra não esteja na lista.
 double* busca_palavra(Node*head, char*palavra){
-    double* vetor = malloc(sizeof(int)*50);
+    double* vetor = malloc(sizeof(double)*50);
     int cont = 0;
     for(Node* p = head; p!= NULL;p = p->next){
         if (strcmp(p->palavra->palavra,palavra)==0){
@@ -144,13 +145,14 @@ double* busca_palavra(Node*head, char*palavra){
 char** palavras_distancia(Node*head, double (*comparacao)(palavra*,palavra*,int), double distancia, char* palavra){//ORDENA DE ACORDO COM A FUNÇÃO DE PARAMETRO
     int cont = 0;                                                                   //dist_euclid para distancia euclidiana e cosin par distancia cosseno
     char** palavras;
-    Node* temp;
+    Node* temp = NULL;
     for(Node* p = head; p!=NULL;p = p->next){
         if (strcmp(p->palavra->palavra,palavra)==0){
             temp = p;
             break;
         }
     }
+    if (temp == NULL)return NULL;
     for(Node* p = head;p!= NULL; p = p->next){
         if (fabs(comparacao(temp->palavra, p->palavra,50))<distancia){
             cont++;
@@ -193,6 +195,10 @@ char** palavras_categorias(Node*head, const char* categoria){
 }
 
 void imprimir_Agrupamento(char** agrupamento){
+    if (agrupamento== NULL){
+        printf("agrupamento n existe");
+        return;
+    }
     int i = 0;
     while(strcmp(agrupamento[i],"1f2i3m4")!=0){
         printf("%s\n",agrupamento[i]);
@@ -322,7 +328,7 @@ char*** m_agrupamentos(Node* head,int k,double (*comparacao)(palavra*,palavra*,i
     }
     for(int i = 0;i<m;i++){
         p = head;
-        for(int j = 0;j<rand()%1000;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
+        for(int j = 0;j<rand()%2000;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
             p = p->next;
             if(p == NULL)break;
         }
@@ -357,14 +363,18 @@ int main(int argc, char** argv){
     srand(time(NULL));
     Node* head = NULL;
     head = lerarquivo(head);
-    //sort(head,norma_compara);
+    //imprimirlista(head,50);
+    //sort(head,palavra_compara);
     //imprimirlistaNorma(head);
     //imprimirlista(head,50);
     //imprimirlistaDist(head,"de", cosin);
-    //char** teste3 = palavras_distancia(head,cosin,0.556,"alemã");
+    //char** teste3 = palavras_distancia(head,dist_euclid,1.06,"alemão");
     //imprimir_Agrupamento(teste3);
-    //char* teste = categoria_vizinhos(head, 5,"de", cosin,categorias);
-    //char** teste1 = agrupar_palavras(head,5,"um",dist_euclid);
+    //imprimir_Agrupamento(teste3);
+    //imprimirlistaDist(head,"de",dist_euclid);
+    //char* teste = categoria_vizinhos(head, 5,"de", dist_euclid,categorias);
+    //printf("%s",teste);
+    //char** teste1 = agrupar_palavras(head,5,"alemão",cosin);
     //imprimir_Agrupamento(teste1);
     //limpar_lista_char(teste1);
     //char** teste11= agrupar_palavras(head,5,"um",cosin);

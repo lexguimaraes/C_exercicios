@@ -1,7 +1,7 @@
 
 
 typedef struct Palavra{
-    char palavra[51];
+    char palavra[101];
     char categoria[16];
     double vetor[50];
 }palavra;
