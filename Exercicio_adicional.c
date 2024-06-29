@@ -67,13 +67,14 @@ void imprimirlistaNorma(Node* head){
 
 
 void imprimirlistaDist(Node* head,char* palavra1, double(*dist)(palavra*,palavra*,int)){//IMPRIME LISTA E DISTANCIA DE ACORDO COM A FUNCAO DE PARAMETRO
-    Node* temp;
+    Node* temp = NULL;
     for(Node* p = head;p!= NULL;p = p->next){
         if (strcmp(p->palavra->palavra,palavra1)==0){
             temp = p;
             break;
         }
     }
+    if(temp == NULL)return;
     for(Node* p = head;p!= NULL; p = p->next){
         printf("%s           %s                %lf\n",p->palavra->palavra, p->palavra->categoria, dist(temp->palavra,p->palavra,50));
     }
@@ -104,20 +105,62 @@ Node* lerarquivo(Node* head){
 // -- retornar as palavras da lista ordenadas pela norma do vetor
 void sort(Node* head,int (*comparacao)(palavra*,palavra*,int)){//ORDENAR PELA FUNCAOO
     palavra* temp;
-    int swapped;
+    if(head == NULL)return;
+    if(head->next == NULL)return;
     for(Node* p = head; p!= NULL; p = p->next){
-        swapped = 0;
         for(Node* i = p->next; i!= NULL; i = i->next){
             if (comparacao(p->palavra,i->palavra,50)>0){
                 temp = p->palavra;
                 p->palavra = i->palavra;
                 i->palavra=temp;
-                swapped = 1;
             }
         }
-        if (!swapped)
-            break;
+    }
+}
 
+double dist_palavra(Node* head, double(*dist)(palavra*, palavra*,int),char* palavra1,palavra* palavra2){
+    if(head == NULL)return -1;
+    if(head->next == NULL)return -1;
+    Node* temp1 = NULL;
+    for(Node* p = head; p!=NULL;p = p->next){
+        if (strcmp(p->palavra->palavra,palavra1)==0){
+            temp1 = p;
+            break;
+        }
+    }
+    if (temp1==NULL)return -1;
+    return dist(temp1->palavra,palavra2,50);
+
+
+
+}
+void sort_dist(Node* head,double (*dist)(palavra*,palavra*,int),char* palavra1){//ORDENAR PELA FUNCAOO
+    palavra* temp;
+    if(head == NULL)return;
+    if(head->next == NULL)return;
+    Node* temp1 = NULL;
+    for(Node* p = head; p!=NULL;p = p->next){
+        if (strcmp(p->palavra->palavra,palavra1)==0){
+            temp1 = p;
+            break;
+        }
+    }
+    if (temp1==NULL)return;
+    palavra* pivo = temp1->palavra;
+    for(Node* p = head; p!= NULL; p = p->next){
+        for(Node* i = p->next; i!= NULL; i = i->next){
+            //double distp = dist_palavra(head,dist,palavra1,p->palavra);
+            //double disti = dist_palavra(head,dist,palavra1,i->palavra);
+            double distp = dist(pivo,p->palavra,50);
+            double disti = dist(pivo,i->palavra,50);
+            //printf("DISTP: %lf    DISTI: %lf\n",distp,disti);
+            if (distp>disti){
+                temp = p->palavra;
+                p->palavra = i->palavra;
+                i->palavra=temp;
+            }
+            //imprimirlistaDist(head,"de",cosin);
+        }
     }
 }
 
@@ -328,7 +371,7 @@ char*** m_agrupamentos(Node* head,int k,double (*comparacao)(palavra*,palavra*,i
     }
     for(int i = 0;i<m;i++){
         p = head;
-        for(int j = 0;j<rand()%2000;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
+        for(int j = 0;j<rand()%929606;j++){//deveria %929606 para o arquivo inteiro, meu computador não processa isso, então vou deixar outros valores temporários
             p = p->next;
             if(p == NULL)break;
         }
@@ -363,9 +406,11 @@ int main(int argc, char** argv){
     srand(time(NULL));
     Node* head = NULL;
     head = lerarquivo(head);
+    sort(head,norma_compara);
+    imprimirlistaNorma(head);
     //imprimirlista(head,50);
-    //sort(head,palavra_compara);
-    //imprimirlistaNorma(head);
+    //imprimirlistaDist(head,"de",cosin);
+    //printf("//////////////////////\n");
     //imprimirlista(head,50);
     //imprimirlistaDist(head,"de", cosin);
     //char** teste3 = palavras_distancia(head,dist_euclid,1.06,"alemão");
@@ -397,6 +442,6 @@ int main(int argc, char** argv){
         }
         free(teste2);
     }*/
-    exclui_lista(head);
+    //exclui_lista(head);
     return 0;
 }

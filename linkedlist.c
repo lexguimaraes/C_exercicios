@@ -128,16 +128,144 @@ void reverse_elements(Node *head){
         }
     }
 }
+Node* insere_ind(Node*head,int ind, int data){
+    if(ind == 0)return insere(head,data);
+    int cont = 0;
+    Node* temp = NULL;
+    Node* tempnext;
+    Node* new = malloc(sizeof(Node));
+    new->data = data;
+    for(Node* p = head; p!= NULL;p = p->next){
+        if (cont >= ind-1){
+            temp = p;
+            break;
+        }
+        cont++;
+    }
+    if (temp == NULL)return head;
+    tempnext = temp->next;
+    temp->next = new;
+    new->next = tempnext;
+    return head;
+}
 
+Node* append(Node* head,int data){
+    Node* new = malloc(sizeof(Node));
+    new->data = data;
+    new->next = NULL;
+    if (head == NULL)return new;
+    Node* p = head;
+    while(p->next!=NULL){
+        p = p->next;
+    }
+    p->next = new;
+    return head;
+}
+
+Node* i_p2(Node* head){
+    Node* new_head = NULL;
+    for(Node* p = head;p!=NULL;p = p->next){
+        if(p->data%2==0){
+            new_head = append(new_head,p->data);
+        }
+    }
+    for(Node* p = head;p!=NULL;p = p->next){
+        if(p->data%2!=0){
+            new_head = append(new_head,p->data);
+        }
+    }
+    return new_head;
+}
+
+void i_p(Node* head){
+    Node* ultp = NULL;
+    int temp1;
+    int temp;
+    for(Node* p = head; p!= NULL; p = p->next){
+        if(p->data%2 == 0){
+            if (ultp == NULL){
+                p = p->next;
+                continue;
+            }
+            temp = ultp->data;
+            ultp->data = p->data;
+            for(Node* i = ultp->next; i!= p->next;i = i->next){
+                temp1 = i->data;
+                i->data = temp;
+                temp = temp1;
+            }
+            ultp = ultp->next;
+        }
+        if(ultp == NULL){
+            if(p->data%2!= 0)
+                ultp = p;
+        }
+    }
+
+
+}
+
+int igual(Node* lista1, Node* lista2){
+    Node* p = lista1;
+    Node* i = lista2;
+    while(p!= NULL && i!= NULL){
+        if(p->data != i->data){
+            return 0;
+        }
+        p = p->next;
+        i = i->next;
+    }
+    if(p == NULL && i == NULL){
+        return 1;
+    }
+    return 0;
+}
+
+
+int contrario(Node* lista1, Node* lista2){
+    Node* lista_aux  = NULL;
+    for(Node* p = lista1; p!= NULL; p= p->next){
+        lista_aux = insere(lista_aux,p->data);
+    }
+    int temp_return = igual(lista_aux,lista2);
+    lista_exclui(lista_aux);
+    return temp_return;
+}
+
+Node* sort_novalista(Node* head){
+    Node* lista_nova = NULL;
+    for(Node* p = head;p!= NULL;p = p->next){
+        lista_nova = insere(lista_nova,p->data);
+    }
+    int temp;
+    int swapped=0;
+
+    for(Node* p = lista_nova;p!= NULL; p = p->next){
+        for(Node* i = p->next;i!= NULL; i = i->next){
+            if(i->data < p->data){
+                temp = i->data;
+                i->data = p->data;
+                p->data = temp;
+            }
+        }
+    }
+    return lista_nova;
+}
 int main(){
     Node* head = NULL;
-    for(int i = 0;i<5;i++){
+    /*for(int i = 0;i<5;i++){
         head = insere(head, i+1);
-    }
+    }*/
+    head = insere(head, 1);
+    head = insere(head, 3);
+    head = insere(head, 2);
+    head = insere(head, 8);
+    head = insere(head, 11);
+    head = insere(head, 9);
+    Node* lista_sorted = sort_novalista(head);
     lista_imprime(head);
-    printf("REVERSA \n");
-    lista_imprime(head);
+    printf("NOVA LISTA SORTED\n");
+    lista_imprime(lista_sorted);
     lista_exclui(head);
-
     return 1;
 }

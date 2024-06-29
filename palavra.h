@@ -1,7 +1,7 @@
 
 
 typedef struct Palavra{
-    char palavra[101];
+    char palavra[101];//101 pois tem uma palavra com 70+chars no arquivo, linha 65190 alguma coisa
     char categoria[16];
     double vetor[50];
 }palavra;
