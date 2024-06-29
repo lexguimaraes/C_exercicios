@@ -107,15 +107,23 @@ void sort(Node* head,int (*comparacao)(palavra*,palavra*,int)){//ORDENAR PELA FU
     palavra* temp;
     if(head == NULL)return;
     if(head->next == NULL)return;
-    for(Node* p = head; p!= NULL; p = p->next){
-        for(Node* i = p->next; i!= NULL; i = i->next){
-            if (comparacao(p->palavra,i->palavra,50)>0){
+    int swapped = 0;
+    Node* p;
+    Node* end = NULL;
+    do{
+        swapped = 0;
+        p = head;
+        while(p->next!=end){
+            if(comparacao(p->palavra,p->next->palavra,50)>0){
                 temp = p->palavra;
-                p->palavra = i->palavra;
-                i->palavra=temp;
+                p->palavra=p->next->palavra;
+                p->next->palavra=temp;
+                swapped = 1;
             }
+            p = p->next;
         }
-    }
+        end = p;
+    }while(swapped);
 }
 
 double dist_palavra(Node* head, double(*dist)(palavra*, palavra*,int),char* palavra1,palavra* palavra2){
@@ -147,21 +155,26 @@ void sort_dist(Node* head,double (*dist)(palavra*,palavra*,int),char* palavra1){
     }
     if (temp1==NULL)return;
     palavra* pivo = temp1->palavra;
-    for(Node* p = head; p!= NULL; p = p->next){
-        for(Node* i = p->next; i!= NULL; i = i->next){
-            //double distp = dist_palavra(head,dist,palavra1,p->palavra);
-            //double disti = dist_palavra(head,dist,palavra1,i->palavra);
+    int swapped = 0;
+    Node* end = NULL;
+    Node* p;
+    do{
+        p = head;
+        swapped = 0;
+        while(p->next != end){
             double distp = dist(pivo,p->palavra,50);
-            double disti = dist(pivo,i->palavra,50);
-            //printf("DISTP: %lf    DISTI: %lf\n",distp,disti);
+            double disti = dist(pivo,p->next->palavra,50);
             if (distp>disti){
                 temp = p->palavra;
-                p->palavra = i->palavra;
-                i->palavra=temp;
+                p->palavra = p->next->palavra;
+                p->next->palavra=temp;
+                swapped = 1;
             }
-            //imprimirlistaDist(head,"de",cosin);
+            p=p->next;
         }
-    }
+        end = p;
+    }while(swapped);
+
 }
 
 // -- retornar um vetor de números aleatórios, caso uma palavra não esteja na lista.
@@ -406,7 +419,8 @@ int main(int argc, char** argv){
     //srand(time(NULL));
     //Node* head = NULL;
     //head = lerarquivo(head);
-    //sort(head,norma_compara);
+    //sort_dist(head,cosin,"de");
+    //sort(head,palavra_compara);
     //imprimirlistaNorma(head);
     //imprimirlista(head,50);
     //imprimirlistaDist(head,"de",cosin);
