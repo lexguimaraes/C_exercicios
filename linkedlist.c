@@ -264,5 +264,5 @@ Node* concat(Node* lista1, Node* lista2){
     return lista2;
 }
 int main(){
-    return 1;
+    return 0;
 }
