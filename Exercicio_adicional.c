@@ -403,11 +403,11 @@ void limpar_lista_char(char** lista) {
 
 
 int main(int argc, char** argv){
-    srand(time(NULL));
-    Node* head = NULL;
-    head = lerarquivo(head);
-    sort(head,norma_compara);
-    imprimirlistaNorma(head);
+    //srand(time(NULL));
+    //Node* head = NULL;
+    //head = lerarquivo(head);
+    //sort(head,norma_compara);
+    //imprimirlistaNorma(head);
     //imprimirlista(head,50);
     //imprimirlistaDist(head,"de",cosin);
     //printf("//////////////////////\n");

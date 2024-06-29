@@ -251,21 +251,18 @@ Node* sort_novalista(Node* head){
     }
     return lista_nova;
 }
+
+Node* concat(Node* lista1, Node* lista2){
+    Node* temp = NULL;
+    for(Node* p = lista1;p!=NULL; p = p->next){
+        temp = p;
+    }
+    if (temp!=NULL){
+        temp->next = lista2;
+        return lista1;
+    }
+    return lista2;
+}
 int main(){
-    Node* head = NULL;
-    /*for(int i = 0;i<5;i++){
-        head = insere(head, i+1);
-    }*/
-    head = insere(head, 1);
-    head = insere(head, 3);
-    head = insere(head, 2);
-    head = insere(head, 8);
-    head = insere(head, 11);
-    head = insere(head, 9);
-    Node* lista_sorted = sort_novalista(head);
-    lista_imprime(head);
-    printf("NOVA LISTA SORTED\n");
-    lista_imprime(lista_sorted);
-    lista_exclui(head);
     return 1;
 }
