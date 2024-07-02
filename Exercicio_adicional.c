@@ -420,7 +420,7 @@ int main(int argc, char** argv){
     //Node* head = NULL;
     //head = lerarquivo(head);
     //sort_dist(head,cosin,"de");
-    //sort(head,palavra_compara);
+    //sort(head,norma_compara);
     //imprimirlistaNorma(head);
     //imprimirlista(head,50);
     //imprimirlistaDist(head,"de",cosin);

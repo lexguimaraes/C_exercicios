@@ -739,6 +739,72 @@ build Exercicio_adicional.exe: C_EXECUTABLE_LINKER__Exercicio_adicional_Debug CM
   TARGET_IMPLIB = libExercicio_adicional.dll.a
   TARGET_PDB = Exercicio_adicional.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target doublelinkedlist
+
+
+#############################################
+# Order-only phony target for doublelinkedlist
+
+build cmake_object_order_depends_target_doublelinkedlist: phony || CMakeFiles/doublelinkedlist.dir
+
+build CMakeFiles/doublelinkedlist.dir/doublelinkedlist.c.obj: C_COMPILER__doublelinkedlist_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/doublelinkedlist.c || cmake_object_order_depends_target_doublelinkedlist
+  DEP_FILE = CMakeFiles\doublelinkedlist.dir\doublelinkedlist.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\doublelinkedlist.dir
+  OBJECT_FILE_DIR = CMakeFiles\doublelinkedlist.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target doublelinkedlist
+
+
+#############################################
+# Link the executable doublelinkedlist.exe
+
+build doublelinkedlist.exe: C_EXECUTABLE_LINKER__doublelinkedlist_Debug CMakeFiles/doublelinkedlist.dir/doublelinkedlist.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\doublelinkedlist.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = doublelinkedlist.exe
+  TARGET_IMPLIB = libdoublelinkedlist.dll.a
+  TARGET_PDB = doublelinkedlist.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target circularlinkedlist
+
+
+#############################################
+# Order-only phony target for circularlinkedlist
+
+build cmake_object_order_depends_target_circularlinkedlist: phony || CMakeFiles/circularlinkedlist.dir
+
+build CMakeFiles/circularlinkedlist.dir/circularlinkedlist.c.obj: C_COMPILER__circularlinkedlist_unscanned_Debug C$:/Users/alexf/CLionProjects/Exercicios/circularlinkedlist.c || cmake_object_order_depends_target_circularlinkedlist
+  DEP_FILE = CMakeFiles\circularlinkedlist.dir\circularlinkedlist.c.obj.d
+  FLAGS = -g -std=gnu99 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\circularlinkedlist.dir
+  OBJECT_FILE_DIR = CMakeFiles\circularlinkedlist.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target circularlinkedlist
+
+
+#############################################
+# Link the executable circularlinkedlist.exe
+
+build circularlinkedlist.exe: C_EXECUTABLE_LINKER__circularlinkedlist_Debug CMakeFiles/circularlinkedlist.dir/circularlinkedlist.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\circularlinkedlist.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = circularlinkedlist.exe
+  TARGET_IMPLIB = libcircularlinkedlist.dll.a
+  TARGET_PDB = circularlinkedlist.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -793,6 +859,10 @@ build 2729b: phony 2729b.exe
 
 build Exercicio_adicional: phony Exercicio_adicional.exe
 
+build circularlinkedlist: phony circularlinkedlist.exe
+
+build doublelinkedlist: phony doublelinkedlist.exe
+
 build fat: phony fat.exe
 
 build linkedlist: phony linkedlist.exe
@@ -815,7 +885,7 @@ build untitled: phony untitled.exe
 #############################################
 # Folder: C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug
 
-build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe 1031b.exe 1449b.exe 1244b.exe 2338b.exe 2338blist.exe 2506b.exe 2492B.exe 2729b.exe 1030b.exe Exercicio_adicional.exe
+build all: phony untitled.exe r1.exe r2.exe r3.exe fat.exe 2728.exe 1272b.exe 2153b.exe 1686b.exe teste.exe linkedlist.exe 1031b.exe 1449b.exe 1244b.exe 2338b.exe 2338blist.exe 2506b.exe 2492B.exe 2729b.exe 1030b.exe Exercicio_adicional.exe doublelinkedlist.exe circularlinkedlist.exe
 
 # =============================================================================
 # Built-in targets
