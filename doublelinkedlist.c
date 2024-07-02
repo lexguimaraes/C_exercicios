@@ -431,6 +431,29 @@ void mult_k(Node* head, int k ){
     }
 }
 
+void mult_k_rec(Node*head, int k){
+    if(!head)return;
+    Node* p = head;
+    Node*t = NULL;
+    if(p->data%k == 0) {
+        if (p->next){
+            p->data = p->next->data;
+            t = p->next;
+            p->next = t->next;
+            p->next->ant = p;
+            free(t);
+            return mult_k_rec(p,k);
+        }
+        if(p->ant){
+            p->ant->next = NULL;
+            free(p);
+            return;
+        }
+        return;
+    }
+    return mult_k_rec(p->next,k);
+}
+
 int main(void){
     Node* head = NULL;
     head = insere(head,2);
@@ -446,7 +469,7 @@ int main(void){
     head2 = insere(head2,3);
     head2 = insere(head2,2);
     head2 = insere(head2,3);
-    mult_k(head,2);
+    mult_k_rec(head,2);
     imp_reverse(head);
     printf("///////////////////\n");
     //imp_lista(head2);
