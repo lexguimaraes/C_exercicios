@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #define ARRAY_SIZE(x) (sizeof((x)) / sizeof((x)[0]))
 void tri();
 
@@ -15,7 +16,7 @@ float sum(float arr[],int size, int start);
 
 void criar_matriz(int lin,int col, float matriz[lin][col]);
 
-int partition(int arr[], int first, int last);
+int partition(int start, int end,int *lista);
 
 void sort(int arr[],int first, int last);
 
@@ -100,11 +101,41 @@ int teste1(int x, int (*function)(int)){
 struct aaa{
     char a[100];
 };
+
+int random(int min, int max){
+    return min + rand() / (RAND_MAX / (max - min + 1) + 1);
+}
+
+void quicksort(int start, int end, int* lista){
+    if(end <= start) return;
+    int pivot = partition(start,end,lista);
+    quicksort(start, pivot-1,lista);
+    quicksort(pivot+1,end,lista);
+}
+
+int partition(int start, int end, int* lista){
+    int pivot = lista[end];
+    int aux = start-1;
+    int temp;
+    for(int i = start; i<= end;i++){
+        if(lista[i]<=pivot){
+            aux++;
+            if(lista[i]<lista[aux]){
+                temp = lista[aux];
+                lista[aux] = lista[i];
+                lista[i] = temp;
+            }
+        }
+    }
+    return aux;
+}
 int main ()
 {
-    struct aaa *vas;
-    vas = malloc(sizeof(*vas)*3);
-    printf("%llu",sizeof(vas));
+    srand(time(0));
+    int lista[10] = {3,5,6,7,9,2,1,14,8,4};
+    quicksort(0,9,lista);
+    //print_array(lista,10);
+    return 1;
 }
 
 
@@ -147,34 +178,7 @@ void quadrado(int m, int n){
 
 
 
-void sort(int arr[],int first, int last){
-    if (first < last){
-        int p_index = partition(arr, first, last);
-        sort(arr, first, p_index - 1 );
-        sort(arr, p_index + 1, last);
-    }
-}
 
-
-
-
-
-int partition(int arr[], int first, int last){
-    int i = first;
-    int pivot = arr[last];
-    for (int j = first; j < last;j++){
-        if (arr[j] <= pivot){
-            int temp = arr[j];
-            arr[j] = arr[i];
-            arr[i] = temp;
-            i++;
-        }
-    }
-    int temp2 = arr[i];
-    arr[i] = arr[last];
-    arr[last] = temp2;
-    return i;
-}
 
 
 

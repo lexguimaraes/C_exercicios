@@ -3,11 +3,10 @@ C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/r1.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/r2.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/r3.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/fat.dir
-C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/2728.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/2728b.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1272b.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/2153b.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1686b.dir
-C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/teste.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/linkedlist.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1031b.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1449b.dir
@@ -18,8 +17,9 @@ C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/2506b.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/2492B.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/2729b.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/1030b.dir
-C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/Exercicio_adicional.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/doublelinkedlist.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/circularlinkedlist.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/P2PE.dir
+C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/Container.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/alexf/CLionProjects/Exercicios/cmake-build-debug/CMakeFiles/rebuild_cache.dir
